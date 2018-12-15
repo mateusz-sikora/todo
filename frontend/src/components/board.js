@@ -45,6 +45,7 @@ class Board extends Component {
       <Grid
         container
         direction="column"
+        spacing={16}
       >
         <Grid item>
           <Typography variant="h5" align="center">
