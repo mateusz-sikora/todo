@@ -1,5 +1,7 @@
 # Todo App
 
+![](todo.gif)
+
 ### Frontend
 
 - ReactJS
