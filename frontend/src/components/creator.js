@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import axios from 'axios';
 
 import TextField from '@material-ui/core/TextField';
@@ -10,6 +9,10 @@ import Grid from '@material-ui/core/Grid';
 
 
 class Creator extends Component {
+
+  static propTypes = {
+    addTask: PropTypes.func.required,
+  };
 
   constructor() {
     super();

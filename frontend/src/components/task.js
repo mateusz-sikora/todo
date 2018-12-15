@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -17,6 +17,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 
 class Task extends Component {
+
+  static propTypes = {
+    task: PropTypes.object.required,
+  };
 
   toggleDone(event) {
     const payload = {done: event.target.checked};
@@ -69,6 +73,12 @@ const mapDispatchToProps = (dispatch) => {
 Task = connect(mapStateToProps, mapDispatchToProps)(Task);
 
 class Tasks extends Component {
+
+  static propTypes = {
+    tasks: PropTypes.array,
+    showPending: PropTypes.bool,
+    showDone: PropTypes.bool,
+  };
 
   getTaskList() {
     const {
