@@ -36,8 +36,8 @@ class Board extends Component {
     let pendingCount = 0;
     let doneCount = 0;
     if (tasks !== undefined){
-      pendingCount = tasks.filter(task => !task.done).length;
-      doneCount = tasks.filter(task => task.done).length;
+      pendingCount = tasks.filter(task => !task.done).size;
+      doneCount = tasks.filter(task => task.done).size;
     }
 
     return (

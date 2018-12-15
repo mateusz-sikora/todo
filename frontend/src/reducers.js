@@ -1,35 +1,33 @@
-const updateTask = (state, task) => {
-  const tasks = [...state.tasks];
-  const taskIndex = tasks.findIndex(item => item.id === task.id);
-
-  if (taskIndex === -1){
-    return state;
-  }
-  tasks[taskIndex] = task;
-  return {...state, tasks};
-}
-
-const deleteTask = (state, task) => {
-  const tasks = [...state.tasks];
-  const taskIndex = tasks.findIndex(item => item.id === task.id);
-
-  if (taskIndex === -1){
-    return state;
-  }
-  tasks.splice(taskIndex, 1);
-  return {...state, tasks};
-}
+import { List } from 'immutable';
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'addTask':
-      return {...state, tasks: [...state.tasks, action.task]};
+      return {
+        ...state,
+        tasks: state.tasks.push(action.task)
+      };
     case 'setTasks':
-      return {...state, tasks: action.tasks};
+      return {
+        ...state,
+        tasks: List(action.tasks)
+      };
     case 'updateTask':
-      return updateTask(state, action.task);
+      return {
+        ...state,
+        tasks: state.tasks.set(
+          state.tasks.findIndex(item => item.id === action.task.id),
+          action.task
+        )
+      };
     case 'deleteTask':
-      return deleteTask(state, action.task);
+      return {
+        ...state,
+        tasks: state.tasks.delete(
+          state.tasks.findIndex(item => item.id === action.task.id),
+          action.task
+        )
+      };
     default:
       return state;
   }

@@ -75,7 +75,7 @@ Task = connect(mapStateToProps, mapDispatchToProps)(Task);
 class Tasks extends Component {
 
   static propTypes = {
-    tasks: PropTypes.array,
+    tasks: PropTypes.object,
     showPending: PropTypes.bool,
     showDone: PropTypes.bool,
   };
@@ -110,7 +110,7 @@ class Tasks extends Component {
         </Grid>
       );
 
-    } else if (tasks.length === 0){
+    } else if (tasks.size === 0){
       return (
         <Typography align="center">
           No tasks found
