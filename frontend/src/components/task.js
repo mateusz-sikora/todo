@@ -15,11 +15,13 @@ import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
+import { updateTask, deleteTask } from '../actionCreators';
+
 
 class Task extends Component {
 
   static propTypes = {
-    task: PropTypes.object.required,
+    task: PropTypes.object.isRequired,
   };
 
   toggleDone(event) {
@@ -65,8 +67,8 @@ const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateTask: (task) => dispatch({type: 'updateTask', task}),
-    deleteTask: (task) => dispatch({type: 'deleteTask', task})
+    updateTask: (task) => dispatch(updateTask(task)),
+    deleteTask: (task) => dispatch(deleteTask(task))
   }
 }
 

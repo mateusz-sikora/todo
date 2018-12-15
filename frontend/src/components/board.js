@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import Tasks from './task';
+import { setTasks } from '../actionCreators';
 
 
 class Board extends Component {
@@ -108,7 +109,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setTasks: (tasks) => dispatch({type: 'setTasks', tasks})
+    setTasks: (tasks) => dispatch(setTasks(tasks))
   };
 }
 

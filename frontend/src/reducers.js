@@ -1,18 +1,20 @@
+import * as action_types from './const';
+
 import { List } from 'immutable';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'addTask':
+    case action_types.ADD_TASK:
       return {
         ...state,
         tasks: state.tasks.push(action.task)
       };
-    case 'setTasks':
+    case action_types.SET_TASKS:
       return {
         ...state,
         tasks: List(action.tasks)
       };
-    case 'updateTask':
+    case action_types.UPDATE_TASK:
       return {
         ...state,
         tasks: state.tasks.set(
@@ -20,7 +22,7 @@ const reducer = (state, action) => {
           action.task
         )
       };
-    case 'deleteTask':
+    case action_types.DELETE_TASK:
       return {
         ...state,
         tasks: state.tasks.delete(

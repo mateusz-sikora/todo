@@ -7,11 +7,13 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
+import { addTask } from '../actionCreators';
+
 
 class Creator extends Component {
 
   static propTypes = {
-    addTask: PropTypes.func.required,
+    addTask: PropTypes.func.isRequired,
   };
 
   constructor() {
@@ -74,13 +76,11 @@ class Creator extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {};
-}
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addTask: (task) => dispatch({type: 'addTask', task})
+    addTask: (task) => dispatch(addTask(task))
   }
 }
 
